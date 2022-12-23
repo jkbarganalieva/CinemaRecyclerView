@@ -14,9 +14,10 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaViewHolder> {
 
     private ArrayList<CinemaModel> cinemaList;
     private ItemClickListener clickListener;
-    public CinemaAdapter(ArrayList<CinemaModel> cinemaList, MainActivity mainActivity){
+    public CinemaAdapter(ArrayList<CinemaModel> cinemaList, ItemClickListener clickListener){
         this.cinemaList=cinemaList;
         this.clickListener=clickListener;
+
     }
 
     @NonNull
@@ -29,7 +30,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaViewHolder> {
     public void onBindViewHolder(@NonNull CinemaViewHolder holder, @SuppressLint("RecyclerView") int position) {
     holder.bind(cinemaList.get(position).image,cinemaList.get(position).title,cinemaList.get(position).desc);
 
-    holder.itemView.setOnClickListener(new View.OnClickListener() {
+    holder.cardView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             clickListener.onItemClick(cinemaList.get(position));
